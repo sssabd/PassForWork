@@ -29,11 +29,12 @@
             style="@style/TextInputLayoutStyle"
 
             android:hint="@string/enter_surname"
+            android:inputType="textPersonName"
 
             app:errorEnabled="true"
             app:errorTextAppearance="@style/ErrorText"
-
             app:hintTextAppearance="@style/HintInInputTextLayout"
+
             app:layout_constraintEnd_toStartOf="@+id/endGuideline"
             app:layout_constraintStart_toStartOf="@+id/startGuideline"
             app:layout_constraintTop_toBottomOf="@id/signUpTextView">
@@ -50,8 +51,9 @@
             style="@style/TextInputLayoutStyle"
 
             android:hint="@string/enter_name"
-            app:errorEnabled="true"
+            android:inputType="textPersonName"
 
+            app:errorEnabled="true"
             app:errorTextAppearance="@style/ErrorText"
             app:hintTextAppearance="@style/HintInInputTextLayout"
 
@@ -72,8 +74,9 @@
             style="@style/TextInputLayoutStyle"
 
             android:hint="@string/enter_patronymic"
-            app:errorEnabled="true"
+            android:inputType="textPersonName"
 
+            app:errorEnabled="true"
             app:errorTextAppearance="@style/ErrorText"
             app:hintTextAppearance="@style/HintInInputTextLayout"
 
@@ -93,8 +96,9 @@
             style="@style/TextInputLayoutStyle"
 
             android:hint="@string/enter_post"
-            app:errorEnabled="true"
+            android:inputType="textPersonName"
 
+            app:errorEnabled="true"
             app:errorTextAppearance="@style/ErrorText"
             app:hintTextAppearance="@style/HintInInputTextLayout"
 
@@ -113,12 +117,15 @@
             android:id="@+id/phoneInputLayout"
             style="@style/TextInputLayoutStyle"
 
-            app:errorEnabled="true"
-            app:errorTextAppearance="@style/ErrorText"
             android:hint="@string/enter_phone"
+            android:inputType="phone"
+
             app:hintTextAppearance="@style/HintInInputTextLayout"
             app:prefixText="+7"
             app:prefixTextAppearance="@style/PrefixTextInInputLayout"
+
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/ErrorText"
 
             app:layout_constraintEnd_toStartOf="@+id/endGuideline"
             app:layout_constraintStart_toStartOf="@+id/startGuideline"
@@ -137,6 +144,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/signUpButton"
             android:layout_width="0dp"
             android:layout_height="70dp"
 
@@ -147,7 +155,7 @@
             app:cornerRadius="10dp"
 
             android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"
             app:layout_constraintEnd_toStartOf="@id/endGuideline"
             app:layout_constraintStart_toEndOf="@id/startGuideline"
             app:layout_constraintTop_toBottomOf="@id/phoneInputLayout" />

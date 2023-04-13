@@ -13,4 +13,13 @@
     <color name="blue">#2596be</color>
     <color name="dark_blue">#1e7898</color>
     <color name="light_blue">#a8d5e5</color>
+
+    <color name="orange">#fb8500</color>
+    <color name="light_orange">#ffb703</color>
+    <color name="dark_blue_2">#023047</color>
+    <color name="middle_blue_2">#219ebc</color>
+    <color name="light_blue_2">#8ecae6</color>
+
+    <color name="light_grey">#9db4c0</color>
+
 </resources>

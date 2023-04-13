@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/qrScannerButton"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+
+        android:layout_marginTop="5dp"
+        android:text="@string/qr_scanner"
+        android:textSize="20sp"
+        app:cornerRadius="10dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/tomorrowScheduleButton"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/tomorrowScheduleButton"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+
+        android:layout_marginTop="5dp"
+        android:text="@string/tomorrow_plan"
+        android:textSize="20sp"
+        app:cornerRadius="10dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/employeesWorkingNowButton"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/qrScannerButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/employeesWorkingNowButton"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+
+        android:layout_marginTop="5dp"
+        android:text="@string/who_is_working_now"
+        android:textSize="20sp"
+        app:cornerRadius="10dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/reporting"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/tomorrowScheduleButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reporting"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+
+        android:layout_marginTop="5dp"
+        android:text="@string/reporting"
+        android:textSize="20sp"
+        app:cornerRadius="10dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/employeesWorkingNowButton" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="14dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="14dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="10dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="10dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

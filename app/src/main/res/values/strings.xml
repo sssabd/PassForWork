@@ -6,8 +6,29 @@
     <string name="sign_up_in_app">Пройдите регистрацию</string>
     <string name="enter_phone">Телефон</string>
     <string name="enter_patronymic">Отчество (необязательно)</string>
-    <string name="phone_mask_hint">(_ _ _) _ _ _ - _ _ - _ _</string>
+    <string name="phone_mask_hint">(_  _  _)  _  _  _  -  _  _  -  _  _</string>
     <string name="enter_post">Должность</string>
     <string name="send_to_sign_up">Отправить на регистрацию</string>
+    <string name="qr_scanner">QR-сканер</string>
+    <string name="tomorrow_plan">План на завтра</string>
+    <string name="who_is_working_now">Кто сейчас работает</string>
+    <string name="reporting">Отчетность</string>
+    <string name="setScheduleLaborers">Установить план рабочих</string>
+    <string name="setScheduleCleaners">Установить план уборщиц</string>
+    <string name="scheduleLaborers">План разнорабочих</string>
+    <string name="scheduleCleaners">План уборщиц</string>
+
+    <string name="monday">Понедельник</string>
+    <string name="tuesday">Вторник</string>
+    <string name="wednesday">Среда</string>
+    <string name="thursday">Четверг</string>
+    <string name="friday">Пятница</string>
+    <string name="saturday">Суббота</string>
+    <string name="sunday">Воскресенье</string>
+    <string name="amountOfWorkers">Количество работников</string>
+    <string name="workingDay">Рабочий день</string>
+    <string name="timeFromTo">Время от и до</string>
+    <string name="default_time_start">09:00</string>
+    <string name="default_time_end">20:00</string>
 
 </resources>
