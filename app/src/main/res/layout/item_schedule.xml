@@ -5,12 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/light_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemWeekdayLayout"
+        app:layout_constraintTop_toBottomOf="@+id/itemWeekdayLayout" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/itemWeekdayLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:background="@drawable/shape_item_schedule"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -18,12 +28,11 @@
         <TextView
             android:id="@+id/weekdayTextView"
             style="@style/TitleTextAppearance"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_item_schedule_weekday"
             android:text="@string/monday"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintEnd_toStartOf="@+id/workingDayCheckBox"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,13 +40,17 @@
             android:id="@+id/workingDayCheckBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:text="@string/workingDay"
             android:textColor="@color/grey"
             android:textSize="18sp"
+
+
+            app:layout_constraintBottom_toBottomOf="@+id/weekdayTextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/weekdayTextView"
-            app:layout_constraintTop_toBottomOf="@+id/weekdayTextView" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/weekdayTextView"
+            app:layout_constraintTop_toTopOf="@+id/weekdayTextView"
+            tools:checked="true" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/amountOfWorkersInputLayout"
@@ -46,15 +59,17 @@
             android:layout_height="wrap_content"
 
             android:hint="@string/amountOfWorkers"
-            app:hintTextAppearance="@style/HintInInputTextLayout"
-            app:hintTextColor="@color/grey"
-
+            android:visibility="gone"
             app:errorEnabled="true"
-            app:errorTextAppearance="@style/ErrorText"
 
+            app:errorTextAppearance="@style/ErrorText"
+            app:hintTextAppearance="@style/HintInInputTextLayout"
+
+            app:hintTextColor="@color/grey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/weekdayTextView"
-            app:layout_constraintTop_toBottomOf="@id/workingDayCheckBox">
+            app:layout_constraintTop_toBottomOf="@id/workingDayCheckBox"
+            tools:visibility="visible">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/amountOfWorkersEditText"
@@ -75,13 +90,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
+            android:paddingStart="15dp"
             android:text="@string/timeFromTo"
             android:textColor="@color/grey"
-            android:textSize="18sp"
 
+            android:textSize="18sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/weekdayTextView"
-            app:layout_constraintTop_toBottomOf="@+id/amountOfWorkersInputLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/amountOfWorkersInputLayout"
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/timeStartWorkDayTextView"
@@ -93,11 +111,13 @@
             android:gravity="center"
             android:text="@string/default_time_start"
             android:textSize="20sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toStartOf="@+id/timeEndWorkDayTextView"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="@+id/weekdayTextView"
-            app:layout_constraintTop_toBottomOf="@+id/timeFromToTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/timeFromToTextView"
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/timeEndWorkDayTextView"
@@ -108,10 +128,12 @@
             android:gravity="center"
             android:text="@string/default_time_end"
             android:textSize="20sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/timeStartWorkDayTextView"
-            app:layout_constraintTop_toTopOf="@+id/timeStartWorkDayTextView" />
+            app:layout_constraintTop_toTopOf="@+id/timeStartWorkDayTextView"
+            tools:visibility="visible" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

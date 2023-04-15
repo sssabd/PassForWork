@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:overScrollMode="never">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +31,10 @@
             android:inputType="textPersonName"
 
             app:errorEnabled="true"
+
             app:errorTextAppearance="@style/ErrorText"
+            app:helperText="@string/necessary"
+            app:helperTextTextAppearance="@style/ErrorText"
             app:hintTextAppearance="@style/HintInInputTextLayout"
 
             app:layout_constraintEnd_toStartOf="@+id/endGuideline"
@@ -55,6 +57,8 @@
 
             app:errorEnabled="true"
             app:errorTextAppearance="@style/ErrorText"
+            app:helperText="@string/necessary"
+            app:helperTextTextAppearance="@style/ErrorText"
             app:hintTextAppearance="@style/HintInInputTextLayout"
 
             app:layout_constraintEnd_toStartOf="@+id/endGuideline"
@@ -97,9 +101,11 @@
 
             android:hint="@string/enter_post"
             android:inputType="textPersonName"
-
             app:errorEnabled="true"
+
             app:errorTextAppearance="@style/ErrorText"
+            app:helperText="@string/necessary"
+            app:helperTextTextAppearance="@style/ErrorText"
             app:hintTextAppearance="@style/HintInInputTextLayout"
 
             app:layout_constraintEnd_toStartOf="@+id/endGuideline"
@@ -120,16 +126,19 @@
             android:hint="@string/enter_phone"
             android:inputType="phone"
 
-            app:hintTextAppearance="@style/HintInInputTextLayout"
-            app:prefixText="+7"
-            app:prefixTextAppearance="@style/PrefixTextInInputLayout"
-
             app:errorEnabled="true"
+
             app:errorTextAppearance="@style/ErrorText"
+            app:helperText="@string/necessary"
+            app:helperTextTextAppearance="@style/ErrorText"
+            app:hintTextAppearance="@style/HintInInputTextLayout"
 
             app:layout_constraintEnd_toStartOf="@+id/endGuideline"
             app:layout_constraintStart_toStartOf="@+id/startGuideline"
-            app:layout_constraintTop_toBottomOf="@id/postInputLayout">
+
+            app:layout_constraintTop_toBottomOf="@id/postInputLayout"
+            app:prefixText="+7"
+            app:prefixTextAppearance="@style/PrefixTextInInputLayout">
 
             <com.vicmikhailau.maskededittext.MaskedEditText
                 android:id="@+id/phoneEditText"
@@ -149,12 +158,12 @@
             android:layout_height="70dp"
 
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
             android:enabled="false"
             android:text="@string/send_to_sign_up"
             android:textSize="20sp"
-            app:cornerRadius="10dp"
 
-            android:layout_marginBottom="10dp"
+            app:cornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"
             app:layout_constraintEnd_toStartOf="@id/endGuideline"
             app:layout_constraintStart_toEndOf="@id/startGuideline"

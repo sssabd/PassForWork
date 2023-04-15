@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+
+        <item name="android:layout_marginTop">15dp</item>
+
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+
+        <item name="expandedHintEnabled">false</item>
+    </style>
+
+    <style name="ErrorText" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HintInInputTextLayout" parent="TextAppearance.AppCompat.Medium">
+
+    </style>
+
+    <style name="TitleTextAppearance" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextInputEditText" >
+        <item name="android:textSize">20sp</item>
+        <item name="backgroundTint">@color/light_blue</item>
+        <item name="android:lines" >1</item>
+        <item name="android:hint">@string/not_entered</item>
+    </style>
+
+    <style name="PrefixTextInInputLayout">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="CustomTabLayoutTextAppearence" parent="Widget.Design.TabLayout">
+        <item name="android:textSize">100sp</item>
+    </style>
+</resources>

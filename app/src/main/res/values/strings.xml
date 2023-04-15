@@ -5,7 +5,7 @@
     <string name="not_entered">Не указано</string>
     <string name="sign_up_in_app">Пройдите регистрацию</string>
     <string name="enter_phone">Телефон</string>
-    <string name="enter_patronymic">Отчество (необязательно)</string>
+    <string name="enter_patronymic">Отчество</string>
     <string name="phone_mask_hint">(_  _  _)  _  _  _  -  _  _  -  _  _</string>
     <string name="enter_post">Должность</string>
     <string name="send_to_sign_up">Отправить на регистрацию</string>
@@ -30,5 +30,6 @@
     <string name="timeFromTo">Время от и до</string>
     <string name="default_time_start">09:00</string>
     <string name="default_time_end">20:00</string>
+    <string name="necessary">*Обязательно</string>
 
 </resources>
