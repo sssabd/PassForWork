@@ -2,11 +2,12 @@ package com.example.passforwork.core.base
 
 import android.app.Application
 import com.example.passforwork.core.di.myAppModules
+import com.example.passforwork.core.di.viewModelModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
-class App: Application() {
+class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
@@ -16,7 +17,12 @@ class App: Application() {
             // Reference Android context
             androidContext(this@App)
             // Load modules
-            modules(myAppModules)
+            modules(
+                listOf(
+                    myAppModules,
+                    viewModelModules
+                )
+            )
         }
     }
 }
