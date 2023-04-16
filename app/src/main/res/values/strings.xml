@@ -3,7 +3,7 @@
     <string name="enter_surname">Фамилия</string>
     <string name="enter_name">Имя</string>
     <string name="not_entered">Не указано</string>
-    <string name="sign_up_in_app">Пройдите регистрацию</string>
+    <string name="sign_up_in_app">Регистрация для заказчика</string>
     <string name="enter_phone">Телефон</string>
     <string name="enter_patronymic">Отчество</string>
     <string name="phone_mask_hint">(_  _  _)  _  _  _  -  _  _  -  _  _</string>
