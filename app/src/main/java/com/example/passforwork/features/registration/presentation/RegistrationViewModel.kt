@@ -4,11 +4,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.passforwork.core.base.network.ApiService
 import com.example.passforwork.features.registration.data.RegData
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
-class RegistrationViewModel(private val service: ApiService): ViewModel() {
+class RegistrationViewModel(private val service: ApiService) : ViewModel() {
 
     private val cyrillic: Pattern = Pattern.compile("[-А-яЁё `']+")
 
@@ -17,29 +18,56 @@ class RegistrationViewModel(private val service: ApiService): ViewModel() {
     val fieldNumberValidationState = MutableStateFlow<ValidationState>(ValidationState.Empty)
     val fieldPatronymicValidationState = MutableStateFlow<ValidationState>(ValidationState.Empty)
     val fieldSurnameValidationState = MutableStateFlow<ValidationState>(ValidationState.Empty)
+    val objectListValidationState = MutableStateFlow<List<ObjectItem>>(emptyList())
+    val objectIdFlow = MutableStateFlow<String?>("Выбрать объект")
+
+    init {
+        getObjects()
+    }
+
+    private fun getObjects() {
+        viewModelScope.launch {
+            delay(500)
+            objectListValidationState.value = listOf(
+                ObjectItem(1, "Moskva") { selectObjectId(1, "Moskva") },
+                ObjectItem(2, "Piter") { selectObjectId(2, "Piter") },
+                ObjectItem(3, "Voronezh") { selectObjectId(3, "Voronezh") }
+            )
+        }
+    }
+
+    private fun selectObjectId(id: Int, name: String) {
+        objectId = id
+        objectIdFlow.value = name
+    }
 
     fun validateRegData(
         name: String?,
         surname: String?,
         patronymic: String? = "",
-        phoneNumber: String?,
-        objectId: Int
+        phoneNumber: String?
     ) {
 
         if (validateFieldIsNotOkay(surname, FieldName.ErrorSurname)) return
         if (validateFieldIsNotOkay(name, FieldName.ErrorName)) return
         if (validateFieldIsNotOkay(patronymic, FieldName.ErrorPatronymic)) return
         if (validateFieldIsNotOkay(phoneNumber, FieldName.ErrorNumber)) return
+        if (objectId == null) {
+            objectIdFlow.value = null
+            return
+        }
 
         viewModelScope.launch {
 //            TODO
             try {
-                service.createReg(RegData(
-                    fullName = "$surname $name $patronymic",
-                    phoneNumber = phoneNumber!!,
-                    objectId = objectId,
-                    position = "TODO",
-                ))
+                service.createReg(
+                    RegData(
+                        fullName = "$surname $name $patronymic",
+                        phoneNumber = phoneNumber!!,
+                        objectId = objectId!!,
+                        position = "TODO",
+                    )
+                )
             } catch (e: Exception) {
                 //TODO показывать диалог с ошибкой
             }
@@ -114,5 +142,12 @@ class RegistrationViewModel(private val service: ApiService): ViewModel() {
         class Error(val errorText: String) : ValidationState()
         object Empty : ValidationState()
     }
+
+    data class ObjectItem(
+        val objectId: Int,
+        val objectString: String,
+        val onClick: () -> Unit
+    )
+
 
 }

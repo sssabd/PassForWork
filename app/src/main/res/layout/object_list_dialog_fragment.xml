@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@drawable/shape_light_blue_top_round_corners"
+    android:backgroundTint="@color/white">
 
     <View
         android:id="@+id/view2"
@@ -25,22 +26,24 @@
         android:background="@drawable/shape_grey_all_round_corners"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.275" />
 
     <ImageButton
         android:id="@+id/exitButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="end"
         android:backgroundTint="@color/light_blue_2"
         android:contentDescription="exit"
         android:hapticFeedbackEnabled="false"
         android:scaleX="1.2"
         android:scaleY="1.2"
-        app:layout_constraintBottom_toBottomOf="@+id/greyStrip"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/greyStrip"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon_cancel" />
 
     <androidx.recyclerview.widget.RecyclerView

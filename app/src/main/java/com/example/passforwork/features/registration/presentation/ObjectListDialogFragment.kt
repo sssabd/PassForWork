@@ -7,19 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.passforwork.R
 import com.example.passforwork.databinding.ObjectListDialogFragmentBinding
+import com.example.passforwork.features.registration.presentation.objectList.ObjectListAdapter
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class ObjectListDialogFragment(
-    val items: List<String>,//TODO сюда будет передаваться список объектов
+    private val items: List<RegistrationViewModel.ObjectItem>,
     private val onDestroy: () -> Unit
 ) : BottomSheetDialogFragment() {
 
     lateinit var binding: ObjectListDialogFragmentBinding
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<FrameLayout>
+    private lateinit var objectListAdapter: ObjectListAdapter
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val bottomSheetDialog = super.onCreateDialog(savedInstanceState) as BottomSheetDialog
@@ -50,7 +53,9 @@ class ObjectListDialogFragment(
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
     }
 
-
+    private fun hideBottomSheet() {
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -69,9 +74,23 @@ class ObjectListDialogFragment(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        TODO в адаптере через лямбду нужно будет сделать колбэк, при нажатие на элемент закрываем диалог и возращаем id объекта
+        initRecyclerView()
 
-        binding.exitButton.setOnClickListener { bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN }
+//        TODO в адаптере через лямбду нужно будет сделать колбэк, при нажатии на элемент закрываем диалог и возращаем id объекта
+
+        binding.exitButton.setOnClickListener { hideBottomSheet() }
+    }
+
+    private fun initRecyclerView() {
+        val layoutManager = LinearLayoutManager(context)
+        binding.objectListRecyclerView.layoutManager = layoutManager
+
+        objectListAdapter = ObjectListAdapter(
+            objectList = items,
+            onClick = { dismiss() }
+        )
+
+        binding.objectListRecyclerView.adapter = objectListAdapter
     }
 
     override fun onDestroy() {

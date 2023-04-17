@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import com.example.passforwork.core.base.view.PhoneTextWatcher
@@ -20,7 +21,6 @@ class RegistrationFragment : Fragment() {
     private lateinit var binding: FragmentRegistrationBinding
     private val viewModel by viewModel<RegistrationViewModel>()
     private val PHONE_LENGTH = 14
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,8 +42,7 @@ class RegistrationFragment : Fragment() {
                 name = binding.nameEditText.text?.toString()?.trim(),
                 surname = binding.surnameEditText.text?.toString()?.trim(),
                 patronymic = binding.patronymicEditText.text?.toString()?.trim(),
-                phoneNumber = binding.phoneEditText.text?.toString(),
-                objectId = 1 //TODO
+                phoneNumber = binding.phoneEditText.text?.toString()
             )
         }
 
@@ -59,6 +58,10 @@ class RegistrationFragment : Fragment() {
         viewModel.fieldSurnameValidationState.observeWithLifecycle(this) {
             setObserver(it, binding.surnameEditText, binding.surnameInputLayout)
         }
+        viewModel.objectIdFlow.observeWithLifecycle(this) {
+            binding.selectObject.text = it ?: "Выбрать объект"
+            binding.objectIdErrorTextView.isVisible = it == null
+        }
 
         binding.nameEditText.doAfterTextChanged { binding.nameInputLayout.error = null }
         binding.surnameEditText.doAfterTextChanged { binding.surnameInputLayout.error = null }
@@ -69,7 +72,7 @@ class RegistrationFragment : Fragment() {
         binding.selectObject.setOnClickListener {
             if (!isObjectListDialogOpen) {
                 val dialog = ObjectListDialogFragment(
-                    emptyList()//TODO
+                    viewModel.objectListValidationState.value
                 ) {
                     isObjectListDialogOpen = false
                 }
@@ -101,6 +104,7 @@ class RegistrationFragment : Fragment() {
         }
     }
 
+    //не очень понятно что это
     private fun showSoftKeyboard(view: TextInputEditText, layout: View) {
         layout.parent.requestChildFocus(layout, layout)
         if (view.requestFocus()) {
@@ -110,5 +114,4 @@ class RegistrationFragment : Fragment() {
             view.setSelection(view.length())
         }
     }
-
 }

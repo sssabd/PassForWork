@@ -22,7 +22,7 @@ class PhoneTextWatcher(private var mask: String) : TextWatcher {
         s?.let {
             val onlyDigits = removeMask(it.toString())
             it.clear()
-            if ( onlyDigits.isNotEmpty())
+            if (onlyDigits.isNotEmpty())
             it.append(
                 applyMask(
                     mask,
