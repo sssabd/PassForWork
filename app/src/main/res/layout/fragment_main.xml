@@ -6,14 +6,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/qrScannerButton"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-
-        android:layout_marginTop="5dp"
+        style="@style/buttonsInFragmentMainStyle"
         android:text="@string/qr_scanner"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-
         app:layout_constraintBottom_toTopOf="@+id/tomorrowScheduleButton"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
         app:layout_constraintHorizontal_bias="0.5"
@@ -22,14 +16,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/tomorrowScheduleButton"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-
-        android:layout_marginTop="5dp"
+        style="@style/buttonsInFragmentMainStyle"
         android:text="@string/tomorrow_plan"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-
         app:layout_constraintBottom_toTopOf="@+id/employeesWorkingNowButton"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
         app:layout_constraintHorizontal_bias="0.5"
@@ -38,14 +26,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/employeesWorkingNowButton"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-
-        android:layout_marginTop="5dp"
+        style="@style/buttonsInFragmentMainStyle"
         android:text="@string/who_is_working_now"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-
         app:layout_constraintBottom_toTopOf="@+id/reporting"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
         app:layout_constraintHorizontal_bias="0.5"
@@ -54,14 +36,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/reporting"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-
-        android:layout_marginTop="5dp"
+        style="@style/buttonsInFragmentMainStyle"
         android:text="@string/reporting"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
         app:layout_constraintHorizontal_bias="0.5"

@@ -19,6 +19,7 @@ class ObjectListDialogFragment(
 ) : BottomSheetDialogFragment() {
 
     lateinit var binding: ObjectListDialogFragmentBinding
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<FrameLayout>
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val bottomSheetDialog = super.onCreateDialog(savedInstanceState) as BottomSheetDialog
@@ -27,7 +28,7 @@ class ObjectListDialogFragment(
             val bottomSheet: FrameLayout =
                 dialog.findViewById(com.google.android.material.R.id.design_bottom_sheet)
                     ?: return@setOnShowListener
-            val bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
+            bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
             if (bottomSheet.layoutParams != null) {
                 showFullScreenBottomSheet(bottomSheet)
             }
@@ -50,6 +51,7 @@ class ObjectListDialogFragment(
     }
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -69,6 +71,7 @@ class ObjectListDialogFragment(
 
 //        TODO в адаптере через лямбду нужно будет сделать колбэк, при нажатие на элемент закрываем диалог и возращаем id объекта
 
+        binding.exitButton.setOnClickListener { bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN }
     }
 
     override fun onDestroy() {

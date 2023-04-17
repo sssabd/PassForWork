@@ -45,4 +45,20 @@
     <style name="CustomTabLayoutTextAppearence" parent="Widget.Design.TabLayout">
         <item name="android:textSize">100sp</item>
     </style>
+
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
+    </style>
+
+    <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="buttonsInFragmentMainStyle" >
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="cornerRadius">@dimen/basic_radius_for_shapes</item>
+    </style>
 </resources>

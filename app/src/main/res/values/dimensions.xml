@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="radius_for_object_settings_fragment_shapes">20dp</dimen>
-    <dimen name="radius_for_tabitems_shapes">10dp</dimen>
+    <dimen name="basic_radius_for_shapes">10dp</dimen>
 </resources>
